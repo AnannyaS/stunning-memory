@@ -1,0 +1,31 @@
+{
+  "name": "careerportal",
+  "version": "1.0.0",
+  "description": "Career Portal for enterprises",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anannya",
+  "dependencies": {
+    "axios": "*",
+    "bluebird": "^3.5.2",
+    "body-parser": "*",
+    "connect-flash": "*",
+    "cookie-parser": "*",
+    "ejs": "^2.6.1",
+    "express": "4.16.4",
+    "express-handlebars": "*",
+    "express-messages": "*",
+    "express-session": "*",
+    "express-validator": "^5.3.0",
+    "formidable": "^1.2.1",
+    "googleapis": "^39.2.0",
+    "mongodb": "*",
+    "mongodb-bluebird": "^0.1.2",
+    "mongoose": "*",
+    "nodemon": "^1.18.6",
+    "path": "^0.12.7"
+  },
+  "license": "ISC"
+}

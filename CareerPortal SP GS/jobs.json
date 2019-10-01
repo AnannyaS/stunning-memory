@@ -1,0 +1,34 @@
+[
+	{
+		"title": "Solution-to-Cost Architect",
+		"location": " Kolkata",
+		"exp": "West Bengal",
+		"jobID": "2-5",
+		"jobShortDesc": "10110210201",
+		"JD": "Lorem ipsum dolor sit amet"
+	},
+	{
+		"title": "Business Associate",
+		"location": "Bangalore",
+		"exp": "Karnataka",
+		"jobID": "1-3",
+		"jobShortDesc": "10110218569",
+		"JD": "Lorem ipsum dolor sit amet"
+	},
+	{
+		"title": "Process Executive - Data",
+		"location": "New Delhi",
+		"exp": "7-9",
+		"jobID": "10110226937",
+		"jobShortDesc": "Lorem ipsum dolor sit amet",
+		"JD": " consectetur adipisicing elit"
+	},
+	{
+		"title": "Sr. Associate - Projects",
+		"location": "Kolkata",
+		"exp": "West Bengal",
+		"jobID": "10-12",
+		"jobShortDesc": "10110235305",
+		"JD": "Lorem ipsum dolor sit amet"
+	}
+]

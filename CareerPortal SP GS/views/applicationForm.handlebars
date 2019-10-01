@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- meta character set -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Site Title -->
+    <title>Apply</title>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+
+    <!-- start banner Area -->
+    <section class="banner-area relative" id="home" style="background:rgb(244, 245, 247) ;
+    background-size: cover">
+
+        <div class="container">
+            <div class="applyFor">
+                <p class="text-blue">You are applying for the position of Advisory ( Job ID: 82760WD ) </p>
+                <hr>
+            </div>
+            <br>
+        </div>
+    </section>
+    <!-- End banner Area -->
+
+    <!-- careers -->
+    <section id="careers" class="careers">
+
+        <div class="personalInfo" data-aos="fade-up">
+            <h4>Personal Information</h4>
+            <hr>
+            <br>
+            <form id="candidateForm" method="POST" action="/applicationForm">
+
+                <div class="eduInfo" id="eduInfo">
+                    Name <span style="color: rgb(228, 4, 4)">*</span>
+                    <div class="form-row">
+                        <div class="col-lg">
+                            <select name="title">
+                                <option name="title" value="Mr">Mr.</option>
+                                <option name="title" value="Ms">Ms.</option>
+                                <option name="title" value="Mrs">Mrs.</option>
+                            </select>
+                        </div>
+                        <div class="col-lg">
+
+                            <input type="text" class="input-box" name="firstName" id="name" placeholder="First Name">
+                        </div>
+                        {{!-- <div class="col-lg-4">
+                            <input type="text" class="input-box" name="middleName" placeholder="Middle Name">
+                        </div> --}}
+                        <div class="col-lg">
+                            <input type="text" class="input-box" name="lastName" id="lastName"
+                                placeholder="Last Name"><br><br>
+                        </div>
+
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-lg">
+                            E-mail Address <span style="color: rgb(228, 4, 4)">*</span><br>
+                            <input type="text" class="input-box" name="email" id="email">
+                        </div>
+                        <div class="col-lg">
+                            Primary Contact Number <span style="color: rgb(228, 4, 4)">*</span><br>
+                            <input type="text" class="input-box" name="phone" id="id"><br><br>
+                        </div>
+                        <div class="col-lg">
+                            Date of Birth <span style="color: rgb(228, 4, 4)">*</span><br>
+                            <input type="text" class="input-box" name="dob" id="dob"><br><br>
+                        </div>
+                    </div>
+
+                    Address Line <span style="color: rgb(228, 4, 4)">*</span><br>
+                    <textarea class="addr" name="addr" id="addr"></textarea><br><br>
+
+                    <div class="form-row">
+                        <div class="col-lg">
+                            State<span style="color: rgb(228, 4, 4)">*</span><br>
+                            <input type="text" class="input-box" name="state" id="state">
+                        </div>
+                        <div class="col-lg">
+                            City<span style="color: rgb(228, 4, 4)">*</span><br>
+                            <input type="text" class="input-box" name="city" id="city">
+                        </div>
+                        <div class="col-lg">
+                            Pincode<span style="color: rgb(228, 4, 4)">*</span><br>
+                            <input type="text" class="input-box" name="pin" id="pin">
+                        </div>
+                    </div><br>
+                </div>
+                <br><br>
+
+                <h4>Education</h4>
+                <p class="text-muted">Enter your last education qualification</p>
+                <hr><br>
+                <div class="eduInfo" id="eduInfo">
+                    <div class="moreEdu" id="moreEdu">
+                        <div class="form-row">
+                            <div class="col-lg-4 md-6">
+                                Institute<span style="color: rgb(228, 4, 4)">*</span><br>
+                                <select name="univ" id="univ" cols="100">
+                                    <option value=""> Select University/Institute from below list</option>
+                                    <option value="University 1">University 1</option>
+                                    <option value="University 2">University 2</option>
+                                    <option value="University 3">University 3</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-2 md-6">
+                                Degree<span style="color: rgb(228, 4, 4)">*</span><br>
+                                <select name="degree" id="degree" cols="50">
+                                    <option value="">Select you Degree</option>
+                                    <option value="B.tech">B.tech</option>
+                                    <option value="M.Tech">M.Tech</option>
+                                    <option value="CA">CA 3</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <br>
+                            </div>
+                            <div class="col-lg-2 md-12">
+                                Course<span style="color: rgb(228, 4, 4)">*</span><br>
+                                <select name="course" id="course">
+                                    <option value=""> Select your Course </option>
+                                    <option value="Course 1">Course 1</option>
+                                    <option value="Course 2">Course 2</option>
+                                    <option value="Course 3">Course 3</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <br>
+                            </div>
+                            <div class="col-lg-2 md-6">
+                                Pass Date<span style="color: rgb(228, 4, 4)">*</span><br>
+                                <input type="text" class="date-box" name="pdate" id="pdate"><br>
+                            </div>
+                            <div class="col-lg-2 md-6">
+                                Percentage<span style="color: rgb(228, 4, 4)">*</span><br>
+                                <input type="number" class="score-box" name="score" id="score"><br>
+                            </div>
+                        </div><br>
+                    </div>
+                    <p id="addEdu" class="addEdu">Add More</p>
+                </div>
+
+                <br><br>
+
+                <h4>Experience</h4>
+                <hr><br>
+                <div class="expInfo" id="expInfo">
+                    Are you currently employed? &nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="emp_stat" id="emp_stat"><br><br>
+                    <div class="moreExp" id="moreExp">
+                        <div class="form-row">
+                            <div class="col-lg">
+                                Company<span style="color: rgb(228, 4, 4)">*</span><br>
+                                <input type="text" class="emp-box" id="company" name="company">
+                            </div>
+                            <div class="col-lg">
+                                Position<span style="color: rgb(228, 4, 4)">*</span><br>
+                                <input type="text" class="emp-box" name="position" id="position">
+                            </div>
+                            <div class="col-lg">
+                                Project<span style="color: rgb(228, 4, 4)">*</span><br>
+                                <input type="text" class="emp-box" id="project" name="project">
+                            </div>
+                            <div class="col-lg">
+                                Responsibilities<span style="color: rgb(228, 4, 4)">*</span><br>
+                                <input type="text" class="emp-box" name="resp">
+                            </div>
+                            <div class="col-lg">
+                                From<span style="color: rgb(228, 4, 4)">*</span><br>
+                                <input type="date" id="expFrom" class="score-box" name="expFrom">
+                            </div>
+                            <div class="col-lg">
+                                To<span style="color: rgb(228, 4, 4)">*</span><br>
+                                <input type="date" id="expTo" class="score-box" name="expTo">
+                            </div>
+                        </div><br>
+                    </div>
+                    <p id="addExp" class="addExp">Add More</p>
+                </div>
+
+                <br><br>
+                <!-- Previous and Next Buttons: -->
+
+                {{!-- <input type="button" id="b1" onClick="insert_value()" value="Insert"></input> --}}
+
+                <button type="button" id="final-btn" type="submit" value="Submit"
+                    onclick="submit();insert_value();">Submit</button>
+                <br><br>
+
+            </form>
+        </div>
+    </section>
+
+
+
+    <!-- =================== JavaScript for adding more qualifications =================== -->
+    <script>
+        $(document).ready(function () {
+            var moreEdu = document.getElementById("moreEdu");
+            var edu = moreEdu.innerHTML;
+
+
+            var x = 1;
+            $('#addEdu').click(function (e) {  //More education
+                e.preventDefault();
+                if (x < 5) {
+                    x++;
+                    $("#moreEdu").append(edu); //add input box
+
+                } else {
+                    alert('You Reached the limit')
+                }
+            });
+
+            var moreExp = document.getElementById("moreExp"); //More experience
+            var exp = moreExp.innerHTML;
+
+            $('#addExp').click(function (e) {
+                e.preventDefault();
+                if (x < 10) {
+                    x++;
+                    $("#moreExp").append(exp); //add input box
+
+                } else {
+                    alert('You Reached the limit')
+                }
+            });
+
+
+            $(wrapper).on("click", ".delete", function (e) {
+                e.preventDefault();
+                $(this).parent('div').remove();
+                x--;
+            })
+        })
+
+
+    </script>
+
+    <!-- =================== JavaScript for linking to Google sheets =================== -->
+    <script>
+
+        var script_url = "https://script.google.com/macros/s/AKfycbw8Nu30uSSK333GG8IeKmQCUgKm4Vvmvad0EsxKrcHgfrVyYCY/exec";
+
+        // Make an AJAX call to Google Script
+        function insert_value() {
+
+            var id1 = $("#id").val();
+            var name = $("#name").val();
+            var lastName = $("#lastName").val();
+            var email = $("#email").val();
+            var dob = $("#dob").val();
+            var addr = $("#addr").val();
+            var state = $("#state").val();
+            var city = $("#city").val();
+            var pin = $("#pin").val();
+            var univ = $("#univ option:selected").val();
+            var degree = $("#degree").val();
+            var course = $("#course").val();
+            var score = $("#score").val();
+            var pdate = $("#pdate").val();
+            var emp_stat = $("#emp_stat").val();
+            var company = $("#company").val();
+            var position = $("#position").val();
+            var project = $("#project").val();
+            var expFrom = $("#expFrom").val();
+            var expTo = $("#expTo").val();
+
+
+
+            var url = script_url + "?callback=ctrlq&name=" + name + "&id=" + id1 + "&lastName=" + lastName + "&email=" + email + "&dob=" + dob + "&addr=" + addr + "&state=" + state + "&city=" + city + "&pin=" + pin + "&univ=" + univ + "&degree=" + degree + "&course=" + course + "&score=" + score + "&pdate=" + pdate + "&emp_stat=" + emp_stat + "&company=" + company + "&position=" + position + "&project=" + project + "&expFrom=" + expFrom + "&expTo=" + expTo + "&action=insert";
+
+
+            var request = jQuery.ajax({
+                crossDomain: true,
+                url: url,
+                method: "GET",
+                dataType: "jsonp"
+            });
+
+        }
+    </script>
+
+
+
+    </script>
+
+</body>
+
+</html>

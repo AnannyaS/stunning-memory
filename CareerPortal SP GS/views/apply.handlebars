@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- meta character set -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Site Title -->
+    <title>Apply</title>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        button {
+            background-color: rgb(14, 66, 133);
+            border-radius: 0rad;
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- start banner Area -->
+    <section class="banner-area relative" id="home" style="background:rgb(244, 245, 247) ;
+    background-size: cover">
+
+        <div class="container">
+            <div class="applyFor">
+                <p class="text-blue">You are applying for the position of Advisory ( Job ID: 82760WD ) </p>
+                <hr>
+            </div>
+            <div class="uploadCV">
+                <h5>Upload Resume</h5><br>
+                <p class="text-blue">Upload either DOC, DOCX, PDF or TXT file types (0.5 MB max)</p><br>
+
+                <form action="/upload" method="POST" enctype="multipart/form-data">
+                    <div id="btn custom">
+                        <input type="file" name="file" />
+                    </div>
+                    {{!-- <button type="button" id="custom-button">CHOOSE A FILE</button> --}}
+                    {{!-- <span id="custom-text">No file chosen, yet.</span> --}}
+                    <div class="file-path-wrapper">
+                        {{!-- <input class="file-path valiadte" type="text"> --}}
+
+                    </div><br>
+                    <button type="submit" class="btn" id="cvSubmit">Submit</button>
+                </form>
+
+
+            </div> <br><br>
+        </div>
+    </section>
+    <!-- End banner Area -->
+
+    <div class="space">
+        <br><br>
+    </div>
+
+
+
+
+
+    <!-- =================== JavaScript for file fetching =================== -->
+    {{!-- <script>
+
+        const realFileBtn = document.getElementById("real-file");
+        const customBtn = document.getElementById("custom-button");
+        const customTxt = document.getElementById("custom-text");
+
+        customBtn.addEventListener("click", function () {
+            realFileBtn.click();
+        });
+
+        realFileBtn.addEventListener("change", function () {
+            if (realFileBtn.value) {
+                customTxt.innerHTML = realFileBtn.value.match(
+                    /[\/\\]([\w\d\s\.\-\(\)]+)$/
+                )[1];
+                setTimeout(function () { alert("Your resume has been uploaded successfully!"); }, 1000);
+                setTimeout(function () { window.location = "/applicationForm"; }, 1000);
+
+            } else {
+                customTxt.innerHTML = "No file chosen.";
+            }
+        });
+
+
+
+    </script> --}}
+
+
+    <!-- =================== JavaScript for adding more qualifications =================== -->
+    {{!-- <script>
+        function addMore() {
+            var x = document.createElement("P");
+            var t = document.createTextNode("This is a paragraph.");
+            x.appendChild(t);
+            document.getElementById("moreEdu").appendChild(x);
+        }
+    </script> --}}
+
+
+</body>
+
+</html>

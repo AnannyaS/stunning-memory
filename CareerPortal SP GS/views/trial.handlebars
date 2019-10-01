@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- meta character set -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Site Title -->
+    <title>Apply</title>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+</head>
+
+<body>
+
+
+    <!-- start banner Area -->
+    <section class="banner-area relative" id="home" style="background:rgb(244, 245, 247) ;
+    background-size: cover">
+
+        <div class="container">
+            <div class="applyFor">
+                <p class="text-blue">You are applying for the position of Advisory ( Job ID: 82760WD ) </p>
+                <hr>
+            </div>
+            <br>
+        </div>
+    </section>
+    <!-- End banner Area -->
+
+    <!-- careers -->
+    <section id="careers" class="careers">
+
+        <div class="personalInfo" data-aos="fade-up">
+            <h4>Personal Information</h4>
+            <hr>
+            <br>
+            <form id="candidateForm" method="POST" action="/applicationForm">
+
+                <div class="eduInfo" id="eduInfo">
+                    Name <span style="color: rgb(228, 4, 4)">*</span>
+                    <div class="form-row">
+                        <div class="col-lg">
+                            <select name="title">
+                                <option name="title" value="Mr">Mr.</option>
+                                <option name="title" value="Ms">Ms.</option>
+                                <option name="title" value="Mrs">Mrs.</option>
+                            </select>
+                        </div>
+                        <div class="col-lg">
+
+                            <input type="text" class="input-box" name="firstName" placeholder="First Name">
+                        </div>
+                        {{!-- <div class="col-lg-4">
+                            <input type="text" class="input-box" name="middleName" placeholder="Middle Name">
+                        </div> --}}
+                        <div class="col-lg">
+                            <input type="text" class="input-box" name="lastName" placeholder="Last Name"><br><br>
+                        </div>
+
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-lg">
+                            E-mail Address <span style="color: rgb(228, 4, 4)">*</span><br>
+                            <input type="text" class="input-box" name="email">
+                        </div>
+                        <div class="col-lg">
+                            Primary Contact Number <span style="color: rgb(228, 4, 4)">*</span><br>
+                            <input type="text" class="input-box" name="phone"><br><br>
+                        </div>
+                        <div class="col-lg">
+                            Date of Birth <span style="color: rgb(228, 4, 4)">*</span><br>
+                            <input type="text" class="input-box" name="dob"><br><br>
+                        </div>
+                    </div>
+
+                    Address Line <span style="color: rgb(228, 4, 4)">*</span><br>
+                    <textarea rows="2" cols="145" name="addr"></textarea><br><br>
+
+                    <div class="form-row">
+                        <div class="col-lg">
+                            State<span style="color: rgb(228, 4, 4)">*</span><br>
+                            <input type="text" class="input-box" name="state">
+                        </div>
+                        <div class="col-lg">
+                            City<span style="color: rgb(228, 4, 4)">*</span><br>
+                            <input type="text" class="input-box" name="city">
+                        </div>
+                        <div class="col-lg">
+                            Pincode<span style="color: rgb(228, 4, 4)">*</span><br>
+                            <input type="text" class="input-box" name="pin">
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+
+                <h4>Education</h4>
+                <p class="text-muted">Enter your last education qualification</p>
+                <hr><br>
+                <div class="eduInfo1" id="eduInfo1">
+                    <div class="moreEdu" id="moreEdu">
+                        <div class="form-row">
+                            <div class="col-lg-4 md-6">
+                                Institute<span style="color: rgb(228, 4, 4)">*</span><br>
+                                <select name="univ" cols="100">
+                                    <option value=""> Select University/Institute from below list</option>
+                                    <option value="University 1">University 1</option>
+                                    <option value="University 2">University 2</option>
+                                    <option value="University 3">University 3</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-2 md-6">
+                                Degree<span style="color: rgb(228, 4, 4)">*</span><br>
+                                <select name="degree" cols="50">
+                                    <option value="">Select you Degree</option>
+                                    <option value="B.tech">B.tech</option>
+                                    <option value="M.Tech">M.Tech</option>
+                                    <option value="CA">CA 3</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <br>
+                            </div>
+                            <div class="col-lg-2 md-12">
+                                Course<span style="color: rgb(228, 4, 4)">*</span><br>
+                                <select name="course">
+                                    <option value=""> Select your Course </option>
+                                    <option value="Course 1">Course 1</option>
+                                    <option value="Course 2">Course 2</option>
+                                    <option value="Course 3">Course 3</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <br>
+                            </div>
+                            <div class="col-lg-2 md-6">
+                                Pass Date<span style="color: rgb(228, 4, 4)">*</span><br>
+                                <input type="text" class="date-box" name="pdate"><br>
+                            </div>
+                            <div class="col-lg-1 md-6">
+                                Percentage<span style="color: rgb(228, 4, 4)">*</span><br>
+                                <input type="number" class="score-box" name="score"><br>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <p id="demo">Add More</p>
+
+
+                </div>
+
+                <br><br>
+
+                <h4>Experience</h4>
+                <hr><br>
+                <div class="eduInfo" id="eduInfo">
+                    Are you currently employed? &nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="employed"><br><br>
+
+                    <div class="form-row">
+                        <div class="col-lg-4">
+                            Company<span style="color: rgb(228, 4, 4)">*</span><br>
+                            <input type="text" class="input-box" name="company">
+                        </div>
+                        <div class="col-lg">
+                            Position<span style="color: rgb(228, 4, 4)">*</span><br>
+                            <input type="text" class="input-box" name="position">
+                        </div>
+                        <div class="col-lg">
+                            Project<span style="color: rgb(228, 4, 4)">*</span><br>
+                            <input type="text" class="input-box" name="project">
+                        </div>
+                        <div class="col-lg-1">
+                            Experience<span style="color: rgb(228, 4, 4)">*</span><br>
+                            <input type="text" class="score-box" name="exp">
+                        </div>
+                    </div><br>
+                </div>
+
+                <br><br>
+                <!-- Previous and Next Buttons: -->
+
+                <button type="button" id="btn" type="submit" value="Submit" onclick="submit()">Submit</button>
+                <br><br>
+
+
+
+
+            </form>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- =================== JavaScript for file uploading =================== -->
+    <script>
+
+        const realFileBtn = document.getElementById("real-file");
+        const customBtn = document.getElementById("custom-button");
+        const customTxt = document.getElementById("custom-text");
+
+        customBtn.addEventListener("click", function () {
+            realFileBtn.click();
+        });
+
+        realFileBtn.addEventListener("change", function () {
+            if (realFileBtn.value) {
+                customTxt.innerHTML = realFileBtn.value.match(
+                    /[\/\\]([\w\d\s\.\-\(\)]+)$/
+                )[1];
+                setTimeout(function () { alert("Your resume has been uploaded successfully!"); }, 1000);
+                setTimeout(function () { window.location = "/success"; }, 1000);
+
+            } else {
+                customTxt.innerHTML = "No file chosen.";
+            }
+        });
+
+
+
+    </script>
+
+
+
+    <!-- =================== JavaScript for multi-step form =================== -->
+    <script>
+
+        function validateForm() {
+            // This function deals with validation of the form fields
+            var y, i, valid = true;
+            y = document.getElementsByTagName("input");
+            // A loop that checks every input field in the current tab:
+            for (i = 0; i < y.length; i++) {
+                // If a field is empty...
+                if (y[i].value == "") {
+                    // add an "invalid" class to the field:
+                    y[i].className += " invalid";
+                    // and set the current valid status to false
+                    valid = false;
+
+                }
+            }
+            // If the valid status is true, mark the step as finished and valid:
+
+            return valid; // return the valid status
+        }
+
+    </script>
+
+
+    <!-- =================== JavaScript for adding more qualifications =================== -->
+    <script>
+        $(document).ready(function () {
+            var max_fields = 4;
+            var wrapper = $("#eduInfo1");
+            var add_button = $("#demo");
+
+            var content = ""'<div class="form-row">' + '
+                < div class="col-lg-4 md-6" > '+'
+            Institute < span style = "color: rgb(228, 4, 4)" > '+' *</span > '+' < br > '+'
+                < select name = "univ" cols = "100" > '+'
+                    < option value = "" > '+' Select University / Institute from below list</option > '+'
+                        < option value = "University 1" > '+'University 1</option > '+'
+                            < option value = "University 2" > '+'University 2</option > '+'
+                                < option value = "University 3" > '+'University 3</option > '+'
+                                    < option value = "Other" > '+'Other</option > '+'
+                                </select > '+'
+                            </div > '+'
+                < div class="col-lg-2 md-6" > '+'
+            Degree < span style = "color: rgb(228, 4, 4)" > '+' *</span > '+' < br > '+'
+                < select name = "degree" cols = "50" > '+'
+                    < option value = "" > '+'Select you Degree</option > '+'
+                        < option value = "B.tech" > '+'B.tech</option > '+'
+                            < option value = "M.Tech" > '+'M.Tech</option > '+'
+                                < option value = "CA" > '+'CA 3</option > '+'
+                                    < option value = "Other" > '+'Other</option > '+'
+                                </select > '+'
+                < br > '+'
+                            </div > '+'
+                < div class="col-lg-2 md-12" > '+'
+            Course < span style = "color: rgb(228, 4, 4)" > '+' *</span > '+' < br > '+'
+                < select name = "course" > '+'
+                    < option value = "" > '+' Select your Course </option > '+'
+                        < option value = "Course 1" > '+'Course 1</option > '+'
+                            < option value = "Course 2" > '+'Course 2</option > '+'
+                                < option value = "Course 3" > '+'Course 3</option > '+'
+                                    < option value = "Other" > '+'Other</option > '+'
+                                </select > '+'
+                < br > '+'
+                            </div > '+'
+                < div class="col-lg-2 md-6" > '+'
+            Pass Date < span style = "color: rgb(228, 4, 4)" > '+' *</span > '+' < br > '+'
+                < input type = "text" class="date-box" name = "pdate" > '+' < br > '+'
+                            </div > '+'
+                < div class="col-lg-1 md-6" > '+'
+            Percentage < span style = "color: rgb(228, 4, 4)" > '+' *</span > '+' < br > '+'
+                < input type = "number" class="score-box" name = "score" > '+' < br > '+'
+                            </div > '+' < a href = "#" class="delete" > Delete</a > '+'
+                        </div > ';
+
+            var x = 1;
+            $(add_button).click(function (e) {
+                e.preventDefault();
+                if (x < max_fields) {
+                    x++;
+                    $(wrapper).append(content); //add input box
+
+                } else {
+                    alert('You Reached the limits')
+                }
+            });
+
+            $(wrapper).on("click", ".delete", function (e) {
+                e.preventDefault();
+                $(this).parent('div').remove();
+                x--;
+            })
+        });
+    </script>
+
+
+</body>
+
+</html>
