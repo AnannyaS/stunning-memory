@@ -21,8 +21,8 @@
     background-size: cover">
 
         <div class="container">
-            <div class="applyFor">
-                <p class="text-blue">You are applying for the position of Advisory ( Job ID: 82760WD ) </p>
+            <div class="applyFor" id="applyFor" data-job={{toDisp.[1]}} data-fileid={{fileId}}>
+                <p class="text-blue">You are applying for the position of {{toDisp.[0]}} ( Job ID: {{toDisp.[1]}} ) file ID {{fileId}} </p>
                 <hr>
             </div>
             <br>
@@ -78,7 +78,7 @@
                         </div>
                     </div>
 
-                    Address Line <span style="color: rgb(228, 4, 4)">*</span><br>
+                    Address <span style="color: rgb(228, 4, 4)">*</span><br>
                     <textarea class="addr" name="addr" id="addr"></textarea><br><br>
 
                     <div class="form-row">
@@ -249,11 +249,11 @@
     <!-- =================== JavaScript for linking to Google sheets =================== -->
     <script>
 
-        var script_url = "https://script.google.com/macros/s/AKfycbw8Nu30uSSK333GG8IeKmQCUgKm4Vvmvad0EsxKrcHgfrVyYCY/exec";
+        var script_url = "https://script.google.com/macros/s/AKfycbzAUd6yJsSlu3NkZ8gzgp7aBoFtTV6HEHQJ1z6O2-0gQSx2hNw/exec";
 
         // Make an AJAX call to Google Script
         function insert_value() {
-
+            
             var id1 = $("#id").val();
             var name = $("#name").val();
             var lastName = $("#lastName").val();
@@ -274,10 +274,14 @@
             var project = $("#project").val();
             var expFrom = $("#expFrom").val();
             var expTo = $("#expTo").val();
+            var jobID = $('#applyFor').data('job');
+            var fileId = $('#applyFor').data('fileid');
+
+            alert("jobID " + jobID)
 
 
 
-            var url = script_url + "?callback=ctrlq&name=" + name + "&id=" + id1 + "&lastName=" + lastName + "&email=" + email + "&dob=" + dob + "&addr=" + addr + "&state=" + state + "&city=" + city + "&pin=" + pin + "&univ=" + univ + "&degree=" + degree + "&course=" + course + "&score=" + score + "&pdate=" + pdate + "&emp_stat=" + emp_stat + "&company=" + company + "&position=" + position + "&project=" + project + "&expFrom=" + expFrom + "&expTo=" + expTo + "&action=insert";
+            var url = script_url + "?callback=ctrlq&name=" + name + "&id=" + id1 + "&lastName=" + lastName + "&email=" + email + "&dob=" + dob + "&addr=" + addr + "&state=" + state + "&city=" + city + "&pin=" + pin + "&univ=" + univ + "&degree=" + degree + "&course=" + course + "&score=" + score + "&pdate=" + pdate + "&emp_stat=" + emp_stat + "&company=" + company + "&position=" + position + "&project=" + project + "&expFrom=" + expFrom + "&expTo=" + expTo + "&jobID=" + jobID + "&fileId=" + fileId + "&action=insert";
 
 
             var request = jQuery.ajax({

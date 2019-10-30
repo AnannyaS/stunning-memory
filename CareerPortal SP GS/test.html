@@ -1,0 +1,121 @@
+<html>
+
+<head></head>
+
+<body>
+    <h3>Choices</h3>
+    <input  id="ad_Checkbox1" class="ads_Checkbox" type="checkbox" value="1" />
+    <input  id="ad_Checkbox2" class="ads_Checkbox" type="checkbox" value="2" />
+    <input  id="ad_Checkbox3" class="ads_Checkbox" type="checkbox" value="3" />
+    <input  id="ad_Checkbox4" class="ads_Checkbox" type="checkbox" value="4" />
+    <input type="button" id="save_value" name="save_value" value="Save" />
+
+
+
+    <script>
+        
+        $('#save_value').click(function() {
+        var val = [];
+        $('input[type=checkbox]:checked').each(function(i){
+          val[i] = $(this).val();
+          alert(val[i]);
+        });
+    });
+        
+    </script>
+</body>
+
+</html>
+
+
+
+ <script>
+    alert("checked! " + toDisp.[1].[1]);
+    var countChecked = function () {
+        var n = $("input:checked").length;
+        $("#showFilter").text(n + (n === 1 ? " is" : " are") + " checked!");
+        console.log("checked")
+    };
+    countChecked();
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+   
+       if (document.getElementById("kol").checked) {
+        var arr = new Array[];
+        var i;
+        $('.careerinfo').hide();
+        for (i = 0; i < toDisp.length; i++) {
+            if (toDisp[i][2] == "Kolkata,West Bengal") {
+                arr.push(toDisp[i]);
+            }
+        }
+        alert("Found")
+    }
+</script> 
+
+
+/*
+var checkbox = document.getElementById("loc");
+var careerinfo = document.getElementById("careerinfo");
+if (checkbox.checked) {
+    alert("checked! " + checkbox.value);
+    alert("checked! " + checkbox.[1].value);
+    var y = $('.careerinfo').data('ref');
+     alert("match found!  " + y);
+/*
+    if (checkbox.value == y) {
+        alert("match found!  " + y);
+    } else {
+        alert("no match")
+    }
+
+*/
+
+
+
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>@@@@@@@@@@@@@@@@>>>>>>>>>>>
+
+
+function filterLoc() {
+    var sele_location = [];
+
+    $.each($("input[name='location']:checked"), function (j) {
+        sele_location.push($(this).val());
+
+    });
+    alert('You selected ' + sele_location.toString());
+
+    var careerinfo = document.getElementById("careerinfo");
+    var arr = [], filtered_arr = [][];
+    var loc, job, exp, desc, i, n;
+    $('.careerinfo').each(function (i) {
+        title = $(this).data('title');
+        job = $(this).data('job');
+        loc = $(this).data('loc'); 
+        exp = $(this).data('exp');
+        desc = $(this).data('desc');
+        
+        arr.push(loc);
+        for (n = 0; n < sele_location.length; n++) {
+            if (loc == sele_location[n]) {
+                filtered_arr[i][0].push(title);
+                filtered_arr[i][1].push(job);
+                filtered_arr[i][2].push(loc);
+                filtered_arr[i][3].push(exp);
+                filtered_arr[i][4].push(desc);
+                
+                alert(loc + " " + job + " "+ title);
+            }
+        }
+    });
+    //alert(location.toString() + " matches " + loc_arr.toString());
+
+    var div_text = '<div class="careerinfo"> <a href="{{this.[5]}}">  <h4>{{this.[0]}}</h4></a>                            <div class="subtitle"> <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;    {{this.[2]}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    <i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp; {{this.[3]}} years of experience&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                <i class="fa fa-flag-o" aria-hidden="true"></i>&nbsp; Job ID:{{this.[1]}}&nbsp;                                </p>                            </div>       <p>{{this.[4]}}</p>   </div>'
+
+
+    $('.showFilter').text(filtered_arr.toString());
+    //     $('.showFilter').html(div_text);
+    $('.wrapper').hide();
+}

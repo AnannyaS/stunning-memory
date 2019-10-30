@@ -22,7 +22,8 @@
                     <h1 class="text-white">
                         CAREERS
                     </h1>
-                    <p class="text-white link-nav"><a href="index.html">Home </a> <span class="lnr lnr-arrow-right"></span>
+                    <p class="text-white link-nav"><a href="index.html">Home </a> <span
+                            class="lnr lnr-arrow-right"></span>
                         <a href="contact.html">
                             Careers</a></p>
                 </div>
@@ -34,39 +35,60 @@
     <!-- careers -->
     <section id="careers" class="careers">
         <div class="container">
-            
+
             <div class="row  careers-content" data-aos="fade-up">
                 <div class="careers-left">
-                    <h3>Refine your search</h3><br><hr>
+                    <h3>Refine your search</h3><br>
+                    <hr>
                     <button class="accordion">Job Category</button>
-                        <div class="panel"><br>
-                            <label class="checkbox1">Technology & Engineering
-                                    <input type="checkbox" checked="checked">
-                                    <span class="checkmark"></span>
-                                  </label>
-                                  <label class="checkbox1">Corporate
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                  </label>
-                                  <label class="checkbox1">IT Infrastructure
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                  </label>
-                                  <label class="checkbox1">Accounts & Finance
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                  </label>
-                        </div><hr>
+                    {{!-- <div class="panel"><br>
+                        <label class="checkbox1">Technology & Engineering
+                            <input type="checkbox" checked="checked">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="checkbox1">Corporate
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="checkbox1">IT Infrastructure
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="checkbox1">Accounts & Finance
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div> --}}
+                    <hr>
 
-                        <button class="accordion">Location</button>
-                        <div class="panel">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        </div><hr>
+                    <button class="accordion">Location</button>
+                    <div class="panel">
+                        <form>
+                            <label class="checkbox1">Kolkata,West Bengal
+                                <input type="checkbox" name="location" value="Kolkata">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox1">Bangalore,Karnataka
+                                <input type="checkbox" value="Bangalore" name="location">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox1">New Delhi
+                                <input type="checkbox" value="Delhi" name="location">
+                                <span class="checkmark"></span>
+                            </label>
+                            <button type="button" onclick="filterLoc()">Apply filter</button>
+                        </form>
 
-                        <button class="accordion">Minimum experience</button>
-                        <div class="panel">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        </div><hr>
+                    </div>
+                    <hr>
+
+                    <button class="accordion">Minimum experience</button>
+                    <div class="panel">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <hr>
 
 
                 </div>
@@ -74,75 +96,47 @@
                     <div class="contact-info">
                         <div class="cinfo">
                             <!-- <h5>Where to Find Us</h5> --><br>
-                            <form class="example" action="/action_page.php">
-                                <input type="text" placeholder="Search from below list" name="search">
+                            {{!-- <form class="example">
+                                <input type="text" id="myInput" placeholder="Search from below list" name="search">
                                 <button type="submit"><i class="fa fa-search"></i></button>
-                              </form>
-                              <br><hr>
+                            </form>
+                            <br>
+                            <hr> --}}
                             <p><br></p>
                         </div>
 
-                        <div class="careerinfo">
-                            <a href="/jobDesc"> <h4>Solution-to-Cost Architect</h4></a>
-                             <div class="subtitle">
-                             <p><i class="fa fa-map-marker" aria-hidden="true" ></i>&nbsp; Kolkata,West Bengal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              <i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp; 2-5 years of experience&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              <i class="fa fa-flag-o" aria-hidden="true"></i>&nbsp; Job ID:10110210201&nbsp;
-                             </p>
-                             </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    
+                        <div class="showFilter" id="showFilter">
+
+                        </div>
+                        <div class="wrapper">
+                            {{#each toDisp}}
+                            {{!-- {{#if (this.[2] == input[name='location']:checked )}} --}}
+                            <div class="careerinfo" data-loc={{this.[2]}} data-job={{this.[1]}} data-exp={{this.[3]}}
+                                data-title='{{this.[0]}}' data-desc='{{this.[4]}}'
+                                data-link="http://localhost:4000/jobDesc?id={{this.[1]}}">
+
+                                <a href="http://localhost:4000/jobDesc?id={{this.[1]}}">
+                                    <h4>{{this.[0]}}</h4>
+                                </a>
+                                <div class="subtitle">
+                                    <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;
+                                        {{this.[2]}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp; {{this.[3]}} years of
+                                        experience&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <i class="fa fa-flag" aria-hidden="true"></i>&nbsp; Job ID:{{this.[1]}}&nbsp;
+                                    </p>
+                                </div>
+                                <p>{{this.[4]}}</p>
+
                             </div>
+                            {{!-- {{else}}
+                        <h6>No results found</h6>
+                        {{/if}} --}}
                             <hr><br>
-                        <div class="careerinfo">
-                            <a href="job1"><h4>Business Associate</h4></a>
-                            <div class="subtitle">
-                                 <p><i class="fa fa-map-marker" aria-hidden="true" ></i>&nbsp; Bangalore,Karnataka&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                 <i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp; 2-5 years of experience&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                 <i class="fa fa-flag-o" aria-hidden="true"></i>&nbsp; Job ID:10110210201&nbsp;
-                                </p>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-           
+                            {{/each}}
                         </div>
-                        <hr><br>
-                        <div class="careerinfo">
-                            <a href="job1"><h4>Sr. Associate - Projects</h4></a>
-                                        <div class="subtitle">
-                                        <p><i class="fa fa-map-marker" aria-hidden="true" ></i>&nbsp; Bilaspur,Chattisgarh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                         <i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp; 2-5 years of experience&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                         <i class="fa fa-flag-o" aria-hidden="true"></i>&nbsp; Job ID:10110210201&nbsp;
-                                        </p>
-                                        </div>
-                                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-               
-                        </div>
-                        <hr><br>
-                        <div class="careerinfo">
-                                            <h4>Process Executive - Data</h4>
-                                            <div class="subtitle">
-                                            <p><i class="fa fa-map-marker" aria-hidden="true" ></i>&nbsp; Kolkata,West Bengal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                             <i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp; 2-5 years of experience&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                             <i class="fa fa-flag-o" aria-hidden="true"></i>&nbsp; Job ID:10110210201&nbsp;
-                                            </p>
-                                            </div>
-                                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                   
-                        </div>
-                        <hr><br>
-                        <div class="careerinfo">
-                                                <h4>Sr. Associate - Projects</h4>
-                                                <div class="subtitle">
-                                                <p><i class="fa fa-map-marker" aria-hidden="true" ></i>&nbsp; Kolkata,West Bengal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                 <i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp; 2-5 years of experience&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                 <i class="fa fa-flag-o" aria-hidden="true"></i>&nbsp; Job ID:10110210201&nbsp;
-                                                </p>
-                                                </div>
-                                                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                       
-                        </div>
-                        <hr><br>
-                                    
+
+
 
                         <div class="cinfo">
                             <h5>Call Us At</h5>
@@ -152,7 +146,9 @@
                                 Monday to Friday - 9:30 AM to 5:30 PM <br>
                                 Saturday - 9:30 AM to 1:30 PM
                             </p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         </div>
                         <ul class="row contact-social">
                             <li>
@@ -171,6 +167,54 @@
         </div>
     </section>
 
+
+    <script>
+
+        function filterLoc() {
+
+            var location = [];
+
+            $.each($("input[name='location']:checked"), function (j) {
+                location.push($(this).val());
+            });
+            alert('You seleceted ' + location.toString());
+
+            var careerinfo = document.getElementById("careerinfo");
+            var arr = [], loc_arr = [];
+            var loc, job, exp, desc, title, i, n;
+            $('.careerinfo').each(function (i) {
+
+                loc = $(this).data('loc');
+                job = $(this).data('job');
+                exp = $(this).data('exp');
+                desc = $(this).data('desc');
+                title = $(this).data('title');
+                link = $(this).data('link');
+
+
+                var div_text = '<div class="careerinfo"> <a href=' + link + '>  <h4>' + title + '</h4></a> <div class="subtitle"> <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;' + loc + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    <i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp;' + exp + ' years of experience&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-flag-o" aria-hidden="true"></i>&nbsp; Job ID:' + job + '&nbsp;  </p></div>       <p>' + desc + '</p></div>'
+
+                arr.push(loc);
+                for (n = 0; n < location.length; n++) {
+                    if (loc == location[n]) {
+                        loc_arr.push(loc)
+                        alert(loc + " " + title);
+                        $('.showFilter').append(div_text);
+
+                    }
+                }
+            });
+            //alert(location.toString() + " matches " + loc_arr.toString());
+
+
+
+
+            //   $('.showFilter').text(loc_arr.toString());
+            //         $('.showFilter').html(div_text);
+            $('.wrapper').hide();
+        }
+
+    </script>
 
 
 </body>

@@ -27,14 +27,14 @@
 
         <div class="container">
             <div class="applyFor">
-                <p class="text-blue">You are applying for the position of Advisory ( Job ID: 82760WD ) </p>
+                <p class="text-blue">You are applying for the position of Advisory ( Job ID: {{toDisp.[1]}} ) </p>
                 <hr>
             </div>
             <div class="uploadCV">
                 <h5>Upload Resume</h5><br>
                 <p class="text-blue">Upload either DOC, DOCX, PDF or TXT file types (0.5 MB max)</p><br>
 
-                <form action="/upload" method="POST" enctype="multipart/form-data">
+                <form action="/upload?id={{toDisp.[1]}}" method="POST" enctype="multipart/form-data">
                     <div id="btn custom">
                         <input type="file" name="file" />
                     </div>
@@ -47,7 +47,7 @@
                     <button type="submit" class="btn" id="cvSubmit">Submit</button>
                 </form>
 
-
+ 
             </div> <br><br>
         </div>
     </section>
@@ -56,7 +56,11 @@
     <div class="space">
         <br><br>
     </div>
+    
 
+<script>
+    
+</script>
 
 
 

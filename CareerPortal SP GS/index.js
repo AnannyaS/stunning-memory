@@ -11,6 +11,19 @@ var mongo = require('mongodb-bluebird');
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 const { check, validationResult } = require('express-validator/check');
+const keys = require('./keys.json');
+
+const hbs = exphbs.create({
+     defaultLayout: 'layout',
+
+     //create custom helper
+     helpers: {
+       ifEquals: function(value1, value2){
+          return value1==value2 ;
+
+       }
+     }
+    });
 
 
 const SCOPES = ['https://www.googleapis.com/auth/drive'];
@@ -24,7 +37,7 @@ app.use(express.urlencoded({ extended: false }));
 
 //view engine
 app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', exphbs({ defaultLayout: 'layout' }));
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 //BodyParser Middleware
@@ -46,6 +59,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 mongoose.connect('mongodb://localhost/careers', { useNewUrlParser: true });
 const Schema = mongoose.Schema;
 const CandidateInfo = new Schema({
+  jobID: String,
   firstName: String,
   lastName: String,
   email: String,
@@ -76,32 +90,102 @@ var Candidate = mongoose.model('Candidate', CandidateInfo, 'candidate');
 
 
 
+// =================== Download JD ==========================//
+
+const client = new google.auth.JWT(
+  keys.client_email,null,keys.private_key,['https://www.googleapis.com/auth/spreadsheets']
+);
+
+client.authorize(function(err,tokens){
+  if(err){
+    console.log(err);
+    return;
+  }else{
+    console.log('Connected!');
+    gsrun(client);
+  }
+});
+
+var dataArray ;
+
+async function gsrun(cl){
+  const gsapi = google.sheets({version: 'v4', auth: cl});
+
+  const opt = {
+    spreadsheetId : '1EEIwtt3VX7VjnIpo4a3JaVdWFM7KWN5vc8Z4z1xdGC0',
+    range: 'Data!A2:M1000'
+  };
+
+ let data = await gsapi.spreadsheets.values.get(opt);
+
+ dataArray = data.data.values;
+ dataArray = dataArray.map(function(r){
+   while(r.length <2){
+     r.push('');
+   }
+   
+   return r;
+ })
+
+ dataArray = data.data.values;
+ // console.log(dataArray);
+}
+
+
+
+
 // =================== ROUTES ==========================//
 
 app.get('/', function (req, res) {
-  res.render('careers')
+  res.render('careers',{
+    toDisp: dataArray
+  });
 });
 
+
 app.get('/jobDesc', function (req, res) {
-  res.render('jobDesc')
+  for(var n=0; n < dataArray.length; n++){
+    if (dataArray[n][1] == req.query.id){
+      res.render('jobDesc',{
+        toDisp : dataArray[n]
+      });
+    }
+  }
+
+  console.log("Params "+req.query.id);
+  //console.log("toDisp "+ dataArray);
 })
 
 app.get('/upload', function (req, res) {
-  res.render('apply')
+ 
+  for(var n=0; n < dataArray.length; n++){
+    if (dataArray[n][1] == req.query.id){
+      res.render('apply',{
+        toDisp : dataArray[n]
+      });
+    }
+  }
 });
 
-app.post('/upload', function (req, res) {
+var fileId,file;
+app.post('/upload', function (req, res, fileId) {
+  var jobId= req.query.id;
   var form = new formidable.IncomingForm();
   form.uploadDir = "uploads/";
   var file_name, file_ext, file_size, file_mimetype;
   form.parse(req, function (err, fields, files) {
 
+    this.fileId = fileId;
+    modifiedDate = files.file.lastModifiedDate;
+    var modate = modifiedDate.toString();
     oldpath = files.file.path;
-    newpath = form.uploadDir + files.file.name;
-    file_name = files.file.name;
+    newpath = form.uploadDir + jobId + "_" + files.file.name;
+    file_name = jobId + "_" + files.file.name ;
     file_ext = files.file.type;
     file_size = files.file.size;
-    file_mimetype = files.file.mimetype;
+    file_mimetype = files.file.mimetype;  
+    console.log("file last modified" + file_name)  
+   
 
     const filetypes = /pdf|doc|dox|txt/;
     const extname = filetypes.test(file_ext.toLowerCase());
@@ -110,7 +194,14 @@ app.post('/upload', function (req, res) {
     fs.rename(oldpath, newpath, function (err) {
       if (err) throw err;
       console.log("Uploading file...");
-      res.render('applicationForm');
+      for(var n=0; n < dataArray.length; n++){
+        if (dataArray[n][1] == req.query.id){
+          res.render('applicationForm',{
+            toDisp : dataArray[n],
+            fileId : file_name
+          });
+        }
+      }
     });
 
     // Load client secrets from a local file.
@@ -183,8 +274,6 @@ app.post('/upload', function (req, res) {
         mimeType: file_ext,
         body: fs.createReadStream(path.join(__dirname, 'uploads/', file_name))
       };
-
-
       if (extname) {
         if (file_size < 50000) {
 
@@ -209,14 +298,13 @@ app.post('/upload', function (req, res) {
         }
       } else {
         console.log("Incorrect format!");
-        // window.alert('Incorrect format!');
+        alert('Incorrect format!');
         // res.redirect('/upload');
       }
-
     }
   })
-
 });
+
 
 
 app.get('/applicationForm', function (req, res) {
@@ -224,7 +312,7 @@ app.get('/applicationForm', function (req, res) {
 });
 
 app.get('/success', function (req, res) {
-  res.render('success')
+      res.render('success')
 });
 
 app.post('/applicationForm', function (req, res) {
@@ -233,8 +321,8 @@ app.post('/applicationForm', function (req, res) {
     console.log(err);
   } else {
 
-
     var newCandidate = new Candidate({
+      
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
@@ -255,14 +343,16 @@ app.post('/applicationForm', function (req, res) {
       project: req.body.project,
       resp: req.body.resp,
       expFrom: req.body.expFrom,
-      expTo: req.body.expTo
+      expTo: req.body.expTo,
+      jobID: req.query.id
     });
 
-    console.log(newCandidate.firstName);
+  
     newCandidate.save(function (errs, data) {
       if (errs) {
         return console.log(errs);
       }
+      console.log(newCandidate.firstName);
       res.redirect('/success');
     });
   }

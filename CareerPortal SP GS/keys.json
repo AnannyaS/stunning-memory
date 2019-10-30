@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "jobdesc",
+  "private_key_id": "2bff99c2e989be44066785be097d5971bfc83ecc",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCPjFzQtZ1rcqub\nYtJacim3O4WDOZcOurvjYlZKQtMN89TUCdu/zQL1+8baMXaO9EKHaGcdL8Xz4GLj\nUwKsrdZiBki4AVRC5oPLLLJRBa6Z9ThjxLUUjKN6kjIx2hRuaTwGeMcLMXNTir5b\n//zSXlbXd59PEuYrUuRC/bsbm9cOgMPG0b7r2EhZ2JuN/GOz5XeopoSTxUJVJ1uU\nPfoAcig2Jj9sbOGL9YhuJAuoBtMznIktTSbv+ELmRCfi+I8IHY6IiryNb7XruCti\nkXYFvM3PWIVGwgqvJ8XOFi43pkchpU7syVPiqbOJf8pM7BFDqlpCVL5kUTCoVVi8\n0n8jDZA5AgMBAAECggEAA/lMg3mXnUccIY3TiW3yIjCrYkXYnO+F7oZFIcKmUZNP\nr7wDIZTlEVayO02VvODdq550Bk6Rgg4S5rygTRP15JpMbo2Y3c5AVUJMQGpyGjB7\n6mUiZyp6hxTff1pMaP8QSpSS3Ag3K1eiq+zS/KbgbBATcK6zAP2HNKSOBrZidnQG\n+iUyUMNT+mFQ5BircPef34R5Zs+EwRtnlsiZCZkexebnDrZtbwSGCRgj5bGacgvV\nvWiU4kxFb+zDeGx8D4SgeBj5QYZxyFODZ6tIERnZl2TPd6Wmm5lA4UULzqRQdmtA\nFg7qUop2Vznj93yzI8kuq8rlbgOy45nLWJGzNGCpYQKBgQDB5Rc3Let4kTknqJsE\ndUqQp8TjxLemQBdwTWFALLujDKGbiR+Z5AcRXvvHsSCHYIbh00xkttZh+w0onI43\n8rDY1lbYXQbZ2K5enCm6ZJgCrCipnnyGe4GaPnk90LuN5LQvz/BvHcKu2SnhZkY0\nFCwbg9KouPZnCJpc23RBiRpnMQKBgQC9hvk4w5WTHUecngID0wnVYWs3kyFI4hDF\n9pUR2VW9fsqZSew21kFbWcbwfSk7HiXyPno1fOBNVJeQKeIa+PcrxPpOTOJy6bAh\nV4FqgrZH8iGpSe0T/Ot9t1g1w5IPPnbIXCr/ldbFzMVbCXo1lwTUh+QWCOOjTpGu\n0ihVyjoHiQKBgQCW2E3JZfYtZH3ctrVzMHUEOSFaOe7ObkpN2kVwkdygqvEHehSV\nuussvoKPBuRRre0Bv0tNh1kd/Rxtne6e5DZlW8tQpH7x+Dsf68oi8qO4YIt5+ozS\naz+W6keUqdFgQK9WCyX4rGSLdvO4IcM4PQFbnqDDFrLL0cuVtj2pxqo94QKBgCRC\nQEfF00XT4jFqYUROCaGTA6ocMc/5v++/nwFNLQQVz7jH1bMgBlztrguwRkUTHXtc\nzJCTFW518pEYEjPK0a7D/ocgWmpVnuaiERZJb4oQHrR+eibKylrAytVuVvEnqB3o\n1CkVh4NMC63BAGpkO/5VCSPWC4bgrypc9m6DQ9rRAoGAH3PpO69wrFcRuzwnYC9r\nvg9WEosN7Zwsv7vcU+R+vJUMPdhEC4sR54irymjEe7B7D4tUZMTHwyujrwiviywo\n4Cg02EoAAZXo8CvP8X+zLxEd8+/+KWBwRd5GQhp+fBDwvvNMrJpyhIX7TYNhhMHG\nGAiB0Bb1lyK6Tn06vjjfkOY=\n-----END PRIVATE KEY-----\n",
+  "client_email": "careerservice@jobdesc.iam.gserviceaccount.com",
+  "client_id": "106682319148231484564",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/careerservice%40jobdesc.iam.gserviceaccount.com"
+}
